@@ -1,0 +1,32 @@
+<h1>Books</h1>
+
+<%= render 'info',user: @user, book: @book %>
+
+ <% if @book.errors.any? %>
+    <p>Please check the error details.</p>
+    <ul>
+      <% @book.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+      <%end%>
+    </ul>
+  <%end%>
+
+ <table>
+  <tr>
+    <th>Title</th>
+    <th>Opinion</th>
+  </tr>
+    <% @books.each do |book| %>
+    <!--@booksのデータを繰り返して出し、|book|に一度収める-->
+  <tr>
+    <td><%= link_to user_path(book.id) do %>
+    <%= image_tag book.user.get_profile_image(100,100) %><br>
+    <% end %></td>
+    <td><%= link_to book.title,book %></td>
+    <td><%= book.body %></td>
+  <% end %>
+  <tr>
+    
+
+    
+    

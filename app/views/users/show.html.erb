@@ -1,0 +1,19 @@
+<%= render 'books/info',user: @user, book: @bookn %>
+
+ <table>
+  <tr>
+    <th>Title</th>
+    <th>Opinion</th>
+  </tr>
+  <tr>
+    <% @books.each do |list| %>
+     <td><%= image_tag list.user.get_profile_image(100,100) %></td>
+    
+     <td><%= link_to list.title, book_path(list.id) %></td>
+    
+     <td><%= list.body %></td>
+     <%end%>
+  <tr>
+ </table>
+
+

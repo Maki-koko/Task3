@@ -1,0 +1,17 @@
+<h1>Users</h1>
+
+<%= render 'books/info',user: @user, book: @book %>
+
+ <table>
+  <tr>
+    <th>image</th>
+    <th>name</th>
+  </tr>
+    <% @users.each do |u| %>
+    <!--@booksのデータを繰り返して出し、|book|に一度収める-->
+  <tr>
+    <td><%= image_tag u.get_profile_image(100,100) %></td>
+    <td><%= u.name %></td>
+    <td><%= link_to "Show", user_path(u.id) %></td>
+  <% end %>
+  <tr>

@@ -1,0 +1,26 @@
+<h1>User info</h1>
+
+  <% if @user.errors.any? %>
+    <p>Please check the error details.</p>
+    <ul>
+      <% @user.errors.full_messages.each do |error| %>
+      <li>
+        <%= error %>
+      </li>
+      <%end%>
+    </ul>
+  <%end%>
+
+<%= form_with model: @user do |f| %>
+
+  <p class="text">Name</p>
+  <%= f.text_field :name, autofocus: true %>
+  
+  <p class="text">Image</p>
+  <%= f.file_field :profile_image, accept: "image/*" %> 
+  
+  <p class="text">Introduction</p>
+  <%= f.text_area :introduction, autofocus: true %>
+  <%= f.submit "Update User" %>
+  
+<% end %>
